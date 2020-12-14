@@ -1,0 +1,73 @@
+package day5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Day5 {
+	public static void main(String args[]) {
+		File input = new File("C:\\Users\\pande\\OneDrive\\Desktop\\advent of code\\Advent of code\\src\\day5\\Input");
+		try {
+			Scanner reader = new Scanner(input);
+			int highestSeat=-1;
+			
+			while (reader.hasNextLine()) {
+				String line = reader.nextLine();
+				System.out.println(line);
+			
+				int seat = findSeat(line);
+				if (seat>highestSeat)
+					highestSeat = seat;
+			}
+			
+			System.out.println(highestSeat);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("done");
+	}
+
+	private static int findSeat(String line) {
+		int row=0;
+		int col=0;
+		int minRow=0;
+		int maxRow=127;
+		for (int i=0;i<line.length()-3;i++) {
+			char ch= line.charAt(i);
+			int middle = (minRow + maxRow)/2;
+			if (ch=='F') {
+				maxRow = middle;
+			} else {
+				minRow = middle + 1;
+			}
+		}
+		if (line.charAt(line.length()-4)=='F')
+			row= minRow;
+		else 
+			row= maxRow;
+		
+		System.out.println("row="+row);
+		
+		int minCol=0;
+		int maxCol=7;
+		for (int i=line.length()-3; i<line.length();i++) {
+			char ch= line.charAt(i);
+			int middle = (minCol + maxCol)/2;
+			if (ch=='R') {
+				maxCol = middle;
+			} else {
+				minCol = middle + 1;
+			}
+		}
+		if (line.charAt(line.length()-1)=='R')
+			col= minCol;
+		else 
+			col= maxCol;
+		
+		System.out.println("col="+col);
+		
+		return row*8+col;
+	}
+}

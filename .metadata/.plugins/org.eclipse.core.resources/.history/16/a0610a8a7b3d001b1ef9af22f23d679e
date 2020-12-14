@@ -1,0 +1,23 @@
+package day4;
+
+import java.util.*;
+import java.io.*;
+
+public class Day4 {
+	public static void main(String args[]) {
+		File input = new File("C:\\Users\\pande\\OneDrive\\Desktop\\advent of code\\Advent of code\\src\\day4\\Input");
+		try {
+			Scanner reader = new Scanner(input);
+			int numOfValidPasswords=0;
+			
+			while (reader.hasNextLine()) {
+				System.out.println(reader.nextLine());
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("done");
+	}
+}

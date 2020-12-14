@@ -1,0 +1,43 @@
+package day4;
+
+import java.util.*;
+import java.io.*;
+
+public class Day4 {
+	public static void main(String args[]) {
+		File input = new File("C:\\Users\\pande\\OneDrive\\Desktop\\advent of code\\Advent of code\\src\\day4\\Input");
+		try {
+			Scanner reader = new Scanner(input);
+			int numOfValidPasswords=0;
+			
+			String passport ="";
+			
+			while (reader.hasNextLine()) {
+				String line = reader.nextLine();
+				System.out.println(line);
+				
+				if (line.length()==0) {
+					int valid = isValidPassport(passport);
+					numOfValidPasswords = numOfValidPasswords+valid; 
+						
+					passport="";
+				} else {
+					passport= passport + " "+ line;
+				}
+			}
+			
+			System.out.println(numOfValidPasswords);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("done");
+	}
+
+	private static int isValidPassport(String passport) {
+		if (passport.contains("byr") && passport.contains("iyr") && passport.contains("eyr") && passport.contains("hgt") && passport.contains("hcl") && passport.contains("ecl") && passport.contains("pid"))
+			return 1;
+			return 0;
+	}
+}

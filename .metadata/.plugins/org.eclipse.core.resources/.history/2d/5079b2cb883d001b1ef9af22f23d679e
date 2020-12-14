@@ -1,0 +1,36 @@
+package day5;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class Day5 {
+	public static void main(String args[]) {
+		File input = new File("C:\\Users\\pande\\OneDrive\\Desktop\\advent of code\\Advent of code\\src\\day5\\Input");
+		try {
+			Scanner reader = new Scanner(input);
+			int highestSeat=-1;
+			
+			while (reader.hasNextLine()) {
+				String line = reader.nextLine();
+				System.out.println(line);
+			
+				int seat = findSeat(line);
+				if (seat>highestSeat)
+					highestSeat = seat;
+			}
+			
+			System.out.println(highestSeat);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("done");
+	}
+
+	private static int findSeat(String line) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
