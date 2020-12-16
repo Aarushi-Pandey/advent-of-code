@@ -1,0 +1,9 @@
+light a bags contain 2 shiny gold bags.
+light d bags contain 1 light b bag.
+light b bags contain 1 shiny gold bag.
+light c bags contain 2 light a bags.
+shiny gold bags contain 1 light blue bag.
+light e bags contain 2 light a bags, 3 light b bags.
+light f bags contain 2 light h bags, 3 light b bags.
+light g bags contain 2 light y bags, 3 light b bags.
+light h bags contain 2 light i bags, 3 light b bags.

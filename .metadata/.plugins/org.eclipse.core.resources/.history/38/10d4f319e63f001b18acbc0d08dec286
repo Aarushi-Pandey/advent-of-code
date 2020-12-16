@@ -1,0 +1,62 @@
+package day9;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Day9 {
+	public static void main(String args[]) {
+		File input = new File("C:\\Users\\pande\\OneDrive\\Desktop\\advent of code\\Advent of code\\src\\day9\\Input");
+		try {
+			Scanner reader = new Scanner(input);
+			ArrayList arr = new ArrayList<Double>();
+			
+				while (reader.hasNextLine()) {
+					String line = reader.nextLine();
+					//System.out.println(line);
+					arr.add(Double.parseDouble(line));
+				}
+				
+				System.out.println(findNotSum(arr));
+
+			
+			//System.out.println(num);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("done");
+	}
+
+	private static double findNotSum(ArrayList arr) {
+		ArrayList sumOf = new ArrayList<Double>();
+		
+		for (int i=0;i<25;i++) {
+			sumOf.add(arr.get(i));
+		}
+		
+		for (int i=25;i<arr.size();i++) {
+			double sum = (double) arr.get(i);
+			int f=0;
+			for (int j=0;j<25;j++) {
+				for (int k=j+1;k<25;k++) {
+					if ((double)sumOf.get(j)+ (double)sumOf.get(k) == sum) {
+						sumOf.remove(0);
+						sumOf.add(sum);
+						f=1;
+						break;
+					}
+				}
+				if (f==1)
+					break;
+			}
+			if (f==0)
+				return sum;
+		}
+		
+		return -1;
+	}
+}

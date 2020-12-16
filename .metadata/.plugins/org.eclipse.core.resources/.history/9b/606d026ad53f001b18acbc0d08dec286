@@ -1,0 +1,36 @@
+package day8;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Day8 {
+	public static void main(String args[]) {
+		File input = new File("C:\\Users\\pande\\OneDrive\\Desktop\\advent of code\\Advent of code\\src\\day8\\Input");
+		try {
+			Scanner reader = new Scanner(input);
+			
+			int acc=0;
+			int lineno=0;
+			String arr[] = new String[624];
+			
+				while (reader.hasNextLine()) {
+					String line = reader.nextLine();
+					System.out.println(line);
+					arr[lineno]= line;
+					lineno++;
+				}
+				
+				for (int i=0;i<arr.length;i++)
+					System.out.println(arr[i]);
+			System.out.println(acc);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("done");
+	}
+}
